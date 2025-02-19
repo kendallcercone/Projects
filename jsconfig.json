@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@@compon@@component/component/ent/component/*": ["./src/*"]
+    }
+  }
+}
