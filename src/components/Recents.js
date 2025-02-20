@@ -12,7 +12,7 @@ const Recents = ({ recents }) => {
                             alt={recent.name}
                             width={100}
                             height={100}
-                            className="m-2 w-[100px] h-[100px] object-cover rounded-md"
+                            className="m-2 w-16 object-cover rounded-md"
                         />
                         <div>
                             <h4 className="mb-2 text-[#8B9B80]">

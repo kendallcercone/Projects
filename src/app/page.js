@@ -1,6 +1,4 @@
-import Header from "../components/Header";
-import Categories from "../components/Categories";
-import Footer from "../components/Footer";
+import Cards from "../components/Cards";
 import Recents from "../components/Recents";
 
 const categories = [
@@ -50,13 +48,12 @@ const recents = [
         link: "recipes/snacks",
         caption:
             "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    }
+    },
 ];
 
 export default function Home() {
     return (
-        <div className="min-h-screen bg-[#F8F3E8] w-full flex flex-col items-center ">
-            <Header />
+        <div className="">
             <main className="w-full flex justify-center transition-all duration-500 ease-in-out">
                 <div className="w-full max-w-[1200px] px-4 sm:px-6 md:px-8 transition-all duration-500 ease-in-out">
                     <div className="mt-10">
@@ -67,14 +64,12 @@ export default function Home() {
                     </div>
                     <div className="mt-10">
                         <h2 className="text-2xl">Pick your plate...</h2>
-                        <div className="mt-10 overflow-x-scroll flex-row flex-nowrap w-full">
-                            <Categories categories={categories} />
+                        <div className="mt-10 overflow-x-scroll  flex flex-row flex-nowrap w-full h-1/2">
+                            <Cards cards={categories} />
                         </div>
                     </div>
                 </div>
             </main>
-
-            <Footer />
         </div>
     );
 }

@@ -1,3 +1,9 @@
-export default function Shop() {
-  return <h1>Shop</h1>
-}
+const Search = () => {
+    return (
+      <div>
+        <h2>Shop</h2>
+        </div>
+    );
+};
+
+export default Search;

@@ -34,7 +34,7 @@ h1, h2, h3 {
     font-family: var(--font-cormorant-garamond);
 }
 
-h2 {
+h2, input {
   color: #A06954;
   font-weight: bold;
 }
@@ -42,3 +42,4 @@ h2 {
 body {
     font-family: var(--font-merriweather);
 }
+
