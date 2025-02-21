@@ -10,7 +10,7 @@ const Cards = ({ cards }) => {
                 <Link
                     key={card.name}
                     href={card.link}
-                    className="p-2 bg-[#D98262] bg-opacity-70 border-2 border-[#D98262] rounded-sm shadow-md transition-transform transform hover:scale-105 m-2 w-32 "
+                    className="p-1 bg-[#D98262] bg-opacity-70 border-2 border-[#D98262] rounded-sm shadow-md transition-transform transform hover:scale-105 m-2 w-32"
                 >
                     <div className="w-full aspect-square">
                         <Image
