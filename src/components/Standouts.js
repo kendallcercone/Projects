@@ -16,13 +16,13 @@ const Standouts = ({ standouts }) => {
                     key={standout.name}
                     href={standout.link}
                     className={`
-                        p-2 bg-[#D98262] bg-opacity-70 border-2 border-[#D98262] rounded-sm shadow-lg transition-transform transform hover:scale-105 -mx-7
+                        group relative p-2 bg-[#D98262] border-2 border-[#D98262] rounded-sm shadow-lg transition-transform transform hover:scale-105 -mx-7
                         ${getRotationClass(index)}
                         ${index === 1 ? "z-20" : "z-10"}
                         hover:z-50
                     `}
                 >
-                    <div className="w-48 h-72">
+                    <div className="w-48 h-72 relative">
                         <Image
                             src={standout.image || "/placeholder.avif"}
                             alt={standout.name}
@@ -30,10 +30,10 @@ const Standouts = ({ standouts }) => {
                             height={288}
                             className="object-cover w-full h-full rounded-sm"
                         />
+                        <h2 className="absolute bottom-0 left-0 right-0 z-1 bg-[#D98262] text-white text-center opacity-0 group-hover:opacity-100">
+                            {standout.name}
+                        </h2>
                     </div>
-                    <h2 className="text-white text-center mt-2">
-                        {standout.name}
-                    </h2>
                 </Link>
             ))}
         </div>

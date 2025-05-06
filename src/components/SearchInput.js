@@ -11,7 +11,7 @@ const SearchInput = () => {
                     type="text"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
-                    placeholder="what's Cookin?"
+                    placeholder="what's cookin?"
                     className="px-3 py-2 bg-[#F8F3E8] text-[#3B3B3B] border-b-2 border-[#A06954] border-opacity-70 border-dotted focus:outline-none placeholder-[#A06954] placeholder-opacity-70 w-full mt-10"
                 />
                 <button

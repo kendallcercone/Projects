@@ -3,20 +3,22 @@ import Recents from "../components/Recents";
 import Standouts from "../components/Standouts";
 
 const standouts = [
-    { link: "recipes/from-scratch" },
-    { link: "recipes/from-scratch" },
-    { link: "recipes/from-scratch" },
-];
-
-const categories = [
     { name: "from scratch", link: "recipes/from-scratch" },
     { name: "breakfast", link: "recipes/breakfast" },
     { name: "bread", link: "recipes/bread" },
-    { name: "dinner", link: "recipes/dinner" },
-    { name: "lunch", link: "recipes/lunch" },
-    { name: "snacks", link: "recipes/snacks" },
-    { name: "soups", link: "recipes/soups" },
-    { name: "sweets", link: "recipes/sweets" },
+    { name: "bread", link: "recipes/bread" },
+    { name: "bread", link: "recipes/bread" },
+];
+
+const categories = [
+    { id: "1", title: "from scratch", link: "categories/from-scratch" },
+    { id: "2", title: "breakfast", link: "categories/breakfast" },
+    { id: "3", title: "bread", link: "categories/bread" },
+    { id: "4", title: "dinner", link: "categories/dinner" },
+    { id: "5", title: "lunch", link: "categories/lunch" },
+    { id: "6", title: "snacks", link: "categories/snacks" },
+    { id: "7", title: "soups", link: "categories/soups" },
+    { id: "8", title: "sweets", link: "categories/sweets" },
 ];
 
 const recents = [

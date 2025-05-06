@@ -8,14 +8,14 @@ const Cards = ({ cards }) => {
         <div className="flex h-full">
             {cards.map((card) => (
                 <Link
-                    key={card.name}
+                    key={card.id}
                     href={card.link}
-                    className="p-1 bg-[#D98262] bg-opacity-70 border-2 border-[#D98262] rounded-sm shadow-md transition-transform transform hover:scale-105 m-2 w-32"
+                    className="p-1 bg-[#D98262] bg-opacity-70 border-2 border-[#D98262] rounded-sm shadow-md transition-transform transform hover:scale-105 m-2 w-[150px]"
                 >
                     <div className="w-full aspect-square">
                         <Image
-                            src="/placeholder.avif"
-                            alt={card.name}
+                            src={card.image || "/placeholder.avif"}
+                            alt={card.title}
                             width={100}
                             height={100}
                             className="mx-auto object-cover w-full h-full rounded-sm"
@@ -23,7 +23,7 @@ const Cards = ({ cards }) => {
                     </div>
                     <div>
                         <p className="flex items-center justify-center text-center h-full text-xs sm:text-sm md:text-md font-bold text-[#A06954]">
-                            {card.name}
+                            {card.title}
                         </p>
                     </div>
                 </Link>
