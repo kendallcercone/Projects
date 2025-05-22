@@ -1,48 +1,39 @@
 import Cards from "../../components/Cards";
 import React from "react";
-
+import { fetchFlickrImages } from "../../utils/flickr";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+// Fetch recent recipes from the database
 async function getRecentRecipes() {
-    // Query for the recipes from the database where they are published
     const allRecipes = await prisma.recipe.findMany({
-        where: { published: true }, // Assuming you have a published field
+        where: { published: true },
         orderBy: {
-            createdAt: "desc", // Sort by createdAt in descending order
+            createdAt: "desc",
         },
-        take: 5, // Limit the results to 5 most recent
+        take: 5,
     });
-console.log("Fetched Recipes:", allRecipes);    return allRecipes;
+    return allRecipes;
 }
 
-const categories = [
-    { id: "1", title: "from scratch", link: "categories/from-scratch" },
-    { id: "2", title: "breakfast", link: "categories/breakfast" },
-    { id: "3", title: "bread", link: "categories/bread" },
-    { id: "4", title: "dinner", link: "categories/dinner" },
-    { id: "5", title: "lunch", link: "categories/lunch" },
-    { id: "6", title: "snacks", link: "categories/snacks" },
-    { id: "7", title: "soups", link: "categories/soups" },
-    { id: "8", title: "sweets", link: "categories/sweets" },
-];
-
 const Recipes = async () => {
-    const recipes = await getRecentRecipes();
+    // Fetch Flickr images
+    const flickrCards = await fetchFlickrImages("recipes", 10);
+
+    // Fetch recent recipes from the database
+    const recentRecipes = await getRecentRecipes();
 
     return (
-        <div className="">
-            <h2 className="text-4xl">Recipes</h2>
-            <div className="mt-10 overflow-x-scroll flex flex-row flex-nowrap w-full">
-                <Cards cards={categories} />
+        <div className="p-4">
+            <h2 className="text-4xl font-bold">Recipes</h2>
+            <div className="mt-10">
+                <h3 className="text-2xl font-semibold">Featured Recipes</h3>
+                <Cards cards={flickrCards} />
             </div>
-            <div>
-                <h3 className="mt-10 text-2xl">Featured</h3>
-            </div>
-            <div>
-                <h3 className="mt-10 text-2xl">Recent</h3>
-                <Cards cards={recipes} />
+            <div className="mt-10">
+                <h3 className="text-2xl font-semibold">Recent Recipes</h3>
+                <Cards cards={recentRecipes} />
             </div>
         </div>
     );

@@ -5,9 +5,7 @@ import Standouts from "../components/Standouts";
 const standouts = [
     { name: "from scratch", link: "recipes/from-scratch" },
     { name: "breakfast", link: "recipes/breakfast" },
-    { name: "bread", link: "recipes/bread" },
-    { name: "bread", link: "recipes/bread" },
-    { name: "bread", link: "recipes/bread" },
+
 ];
 
 const categories = [
