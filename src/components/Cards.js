@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Cards = ({ cards }) => {
     return (
-        <div className="flex h-full">
+        <div className="flex">
             {cards.map((card) => (
                 <Link
                     key={card.id}
@@ -21,8 +21,8 @@ const Cards = ({ cards }) => {
                             className="mx-auto object-cover w-full h-full rounded-sm"
                         />
                     </div>
-                    <div>
-                        <p className="flex items-center justify-center text-center h-full text-xs sm:text-sm md:text-md font-bold text-[#A06954]">
+                    <div className="flex items-center justify-center">
+                        <p className="text-center text-xs sm:text-sm md:text-md font-bold text-[#A06954] overflow-hidden text-ellipsis whitespace-nowrap hover:overflow-visible hover:whitespace-normal">
                             {card.title}
                         </p>
                     </div>

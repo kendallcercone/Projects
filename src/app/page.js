@@ -1,12 +1,8 @@
 import Cards from "../components/Cards";
 import Recents from "../components/Recents";
 import Standouts from "../components/Standouts";
-
-const standouts = [
-    { name: "from scratch", link: "recipes/from-scratch" },
-    { name: "breakfast", link: "recipes/breakfast" },
-
-];
+import { getFeaturedRecipes } from "../utils/getFeatured";
+import { getRecentRecipes } from "../utils/getRecent";
 
 const categories = [
     { id: "1", title: "from scratch", link: "categories/from-scratch" },
@@ -19,44 +15,8 @@ const categories = [
     { id: "8", title: "sweets", link: "categories/sweets" },
 ];
 
-const recents = [
-    {
-        name: "from scratch",
-        link: "recipes/from-scratch",
-        caption:
-            "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    },
-    {
-        name: "breakfast",
-        link: "recipes/breakfast",
-        caption:
-            "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    },
-    {
-        name: "bread",
-        link: "recipes/bread",
-        caption:
-            "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    },
-    {
-        name: "dinner",
-        link: "recipes/dinner",
-        caption:
-            "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    },
-    {
-        name: "lunch",
-        link: "recipes/lunch",
-        caption:
-            "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    },
-    {
-        name: "snacks",
-        link: "recipes/snacks",
-        caption:
-            "Lorem ipsum dolor sit amet consectetur. Mi dolor vestibulum fusce scelerisque. Enim vel sed vestibulum turpis enim felis nibh. ",
-    },
-];
+const featuredRecipes = await getFeaturedRecipes();
+const recentRecipes = await getRecentRecipes();
 
 export default function Home() {
     return (
@@ -64,12 +24,12 @@ export default function Home() {
             <main className="w-full flex justify-center transition-all duration-500 ease-in-out">
                 <div className="w-full max-w-[1200px] px-4 sm:px-6 md:px-8 transition-all duration-500 ease-in-out">
                     <div className="mt-10 flex flex-col justify-center items-center">
-                        <Standouts standouts={standouts}/>
+                        <Standouts standouts={featuredRecipes} />
                     </div>
                     <div className="mt-10">
                         <h2 className="text-2xl">Recently dished out...</h2>
                         <div className="mt-10 bg-[#D98262] bg-opacity-70 p-2">
-                            <Recents recents={recents} />
+                            <Recents recents={recentRecipes} />
                         </div>
                     </div>
                     <div className="mt-10">
