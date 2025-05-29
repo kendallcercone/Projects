@@ -1,5 +1,6 @@
 import React from "react";
 import { getRecipeByLink } from "../../../utils/getRecipeByLink";
+import Image from "next/image";
 
 const Recipe = async ({ params }) => {
     const { recipe: link } = await params; // Extract the `link` from the URL
@@ -11,22 +12,54 @@ const Recipe = async ({ params }) => {
 
     return (
         <div className="p-4">
-            <h1 className="text-4xl font-bold">{recipe.title}</h1>
-            <p className="mt-4 text-lg">{recipe.description}</p>
-            <div className="mt-6">
-                <h2 className="text-2xl font-semibold">Ingredients</h2>
-                <p>{recipe.ingredients}</p>
+            <div className="border-b border-[#D98262]">
+                <h1 className="text-4xl font-bold">{recipe.title}</h1>
             </div>
-            <div className="mt-6">
-                <h2 className="text-2xl font-semibold">Steps</h2>
-                <p>{recipe.steps}</p>
-            </div>
-            <div className="mt-6">
-                <img
-                    src={recipe.image}
-                    alt={recipe.title}
-                    className="rounded-md"
-                />
+            <div className="flex flex-row w-full h-[calc(100vh-10rem)]">
+                <div className="flex flex-col w-3/4 h-full border border-[#A06954] mt-6 mr-4">
+                    <div className="flex flex-col flex-1">
+                        <div className="flex">
+                            <div className="w-2/3">
+                                <div className="pt-2">
+                                    <h2 className="text-2xl font-semibold text-[#3B3B3B] m-2 border-b border-[#3B3B3B]">
+                                        Ingredients
+                                    </h2>
+                                </div>
+                                <ul className="px-6 list-disc list-inside">
+                                    {recipe.ingredients
+                                        .split(";")
+                                        .map((ingredient, idx) => (
+                                            <li key={idx}>
+                                                {ingredient.trim()}
+                                            </li>
+                                        ))}
+                                </ul>
+                            </div>
+                            <div className="w-1/3 m-6">
+                                <Image
+                                    src={recipe.image}
+                                    alt={recipe.title}
+                                    width={256}
+                                    height={256}
+                                    className="w-64 h-64 object-cover border-2 border-[#A06954]"
+                                />
+                            </div>
+                        </div>
+                        <h2 className="text-2xl font-semibold text-[#3B3B3B] m-2 border-b border-[#3B3B3B]">
+                            Steps
+                        </h2>
+                        <ol className="px-6 list-decimal list-inside">
+                            {recipe.steps.split(";").map((step, idx) => (
+                                <li className="py-1" key={idx}>
+                                    {step.trim()}
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
+                <div className=" w-1/4 bg-[#D98262] opacity-75 h-full flex-1 mt-6">
+                    <div className=""></div>
+                </div>
             </div>
         </div>
     );
