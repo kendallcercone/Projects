@@ -3,7 +3,7 @@ import { getRecipeByLink } from "../../../utils/getRecipeByLink";
 import Image from "next/image";
 
 const Recipe = async ({ params }) => {
-    const { recipe: link } = await params; // Extract the `link` from the URL
+    const { recipe: link } = params;
     const recipe = await getRecipeByLink(link);
 
     if (!recipe) {
@@ -15,11 +15,11 @@ const Recipe = async ({ params }) => {
             <div className="border-b border-[#D98262]">
                 <h1 className="text-4xl font-bold">{recipe.title}</h1>
             </div>
-            <div className="flex flex-row w-full h-[calc(100vh-10rem)]">
-                <div className="flex flex-col w-3/4 h-full border border-[#A06954] mt-6 mr-4">
+            <div className="flex flex-col md:flex-row w-full items-stretch">
+                <div className="flex flex-col w-full md:w-3/4 border border-[#A06954] mr-4 mt-6">
                     <div className="flex flex-col flex-1">
-                        <div className="flex">
-                            <div className="w-2/3">
+                        <div className="flex w-full flex-col-reverse sm:flex-row">
+                            <div className="w-full md:w-2/3">
                                 <div className="pt-2">
                                     <h2 className="text-2xl font-semibold text-[#3B3B3B] m-2 border-b border-[#3B3B3B]">
                                         Ingredients
@@ -35,7 +35,7 @@ const Recipe = async ({ params }) => {
                                         ))}
                                 </ul>
                             </div>
-                            <div className="w-1/3 m-6">
+                            <div className="flex justify-center lg:w-1/3 m-6">
                                 <Image
                                     src={recipe.image}
                                     alt={recipe.title}
@@ -57,8 +57,8 @@ const Recipe = async ({ params }) => {
                         </ol>
                     </div>
                 </div>
-                <div className=" w-1/4 bg-[#D98262] opacity-75 h-full flex-1 mt-6">
-                    <div className=""></div>
+                <div className="w-full md:w-1/4 bg-[#D98262] opacity-75 flex-1 flex mt-6">
+                    <div className="w-full h-full flex items-center justify-center"></div>
                 </div>
             </div>
         </div>
