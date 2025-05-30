@@ -8,11 +8,10 @@ const Recipes = async () => {
     const featuredRecipes = await getFeaturedRecipes();
 
     return (
-        <div className="p-4">
+        <div className="">
             <h2 className="text-4xl font-bold">Recipes</h2>
-            <div className="mt-10">
-                <h3 className="text-2xl font-semibold">Featured Recipes</h3>
-                <Cards cards={featuredRecipes} />
+            <div className="mt-10 overflow-x-scroll  flex flex-row flex-nowrap w-full">
+                <Cards cards={recentRecipes} />
             </div>
             <div className="mt-10">
                 <h3 className="text-2xl font-semibold">Recent Recipes</h3>

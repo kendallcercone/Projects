@@ -11,7 +11,7 @@ const Recipe = async ({ params }) => {
     }
 
     return (
-        <div className="p-4">
+        <div className="">
             <div className="border-b border-[#D98262]">
                 <h1 className="text-4xl font-bold">{recipe.title}</h1>
             </div>
